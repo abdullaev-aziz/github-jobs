@@ -1,5 +1,5 @@
 [[redirects]]
-  from = "/*"
-  to = "https://jobs.github.com:splat"
+  from = "/positions.json"
+  to = "https://jobs.github.com/positions.json"
   status = 200
   force = true
