@@ -15,7 +15,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "jest && react-scripts build",
+    "build": "CI=react-scripts build",
     "test": "jest",
     "eject": "react-scripts eject"
   },
