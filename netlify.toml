@@ -1,2 +1,2 @@
 [build]
-CI= yarn run build
+CI=yarn run build
