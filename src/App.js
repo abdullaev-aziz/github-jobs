@@ -8,7 +8,7 @@ import {useEffect} from 'react'
 
 function App() {
 
-  const jobs = useFetch('/positions.json?page=1')
+  const jobs = useFetch('/api/positions.json?page=1')
   useGeolocation();
   return (
     <div className="App">
