@@ -1,17 +1,10 @@
-import React, {useRef, useEffect} from "react";
+import React, { useRef, useEffect } from "react";
 import JobCard from "../components/JobCard";
 import { useDispatch, useSelector } from "react-redux";
 import Spinner from "../components/Spinner";
 
 import actionTypes from '../app/actionTypes'
 
-const hiddenStyle = {
-  display: "none",
-}
-
-const visibleStyle = {
-  display: "flex"
-}
 
 export default function Jobs() {
   const jobsRef = useRef();
@@ -19,9 +12,8 @@ export default function Jobs() {
   const { jobs, resultsNow, showJobs } = store;
   const dispatch = useDispatch();
 
-  useEffect(()=> {
+  useEffect(() => {
     if (jobsRef.current) {
-      const oldDisplay = jobsRef.current.style.display;
       jobsRef.current.style.display = showJobs ? 'flex' : 'none'
     }
   }, [showJobs])

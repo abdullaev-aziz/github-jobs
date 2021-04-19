@@ -14,12 +14,6 @@ export default function reducer(store = updateStore(defaultState), action) {
       return updateStore(store, "query", action.payload.query);
     case actions.SET_JOBS:
       return updateStore(store, "jobs", action.payload.jobs);
-    case actions.LOAD_MORE: {
-      const { resultsNow, resultsPerPage, jobs } = store;
-      const shownResults = resultsNow + resultsPerPage;
-      if (shownResults < jobs.length)
-        return updateStore(store, "resultsNow", shownResults);
-    }
 
     case actions.SHOW_DESCRIPTION: {
       const {showDesc, descHtml, url} = action.payload
@@ -34,6 +28,16 @@ export default function reducer(store = updateStore(defaultState), action) {
     case actions.TOGGLE_JOBS: {
       return updateStore(store, 'showJobs', !store.showJobs)
     }
+
+    case actions.LOAD_MORE: {
+      const { resultsNow, resultsPerPage, jobs } = store;
+      const shownResults = resultsNow + resultsPerPage;
+      if (shownResults < jobs.length)
+        return updateStore(store, "resultsNow", shownResults);
+      else {
+        // need to load more from api and add to  the store
+      }
+      }
 
     default:
       return store;

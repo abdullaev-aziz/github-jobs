@@ -3,6 +3,7 @@ import CompanyLogo from "./CompanyLogo";
 import { useDispatch, useSelector } from "react-redux";
 import actionTypes from "../app/actionTypes";
 
+
 export default function JobCard({ job }) {
   const {
     created_at,

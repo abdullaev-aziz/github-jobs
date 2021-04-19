@@ -1,5 +1,5 @@
 import React from "react";
-import "./ThemeToggle.css";
+import "../styles/ThemeToggle.css";
 import { useDispatch, useSelector } from "react-redux";
 import actionTypes from "../app/actionTypes";
 
