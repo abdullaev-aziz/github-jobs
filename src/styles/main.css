@@ -24,6 +24,10 @@ body {
   margin-top: 5px;
 }
 
+.LoadMore {
+  width: 100%;
+}
+
 .LoadMore button {
   display: block;
   width: 200px;
@@ -73,22 +77,19 @@ body {
   font-size: 0.75rem;
   font-weight: bold;
   color: #5865e0;
-  position: relative;
-  bottom: -65px;
+  position: absolute;
+  bottom: 20px;
 }
 
 .JobCard {
+  position: relative;
   border-radius: 5px;
   margin: 20px;
   padding: 10px;
-}
-
-.JobCard {
   background: #ffffff;
   height: 240px;
   width: 100%;
   cursor: pointer;
-  padding: 20px;
 }
 
 @media screen and (min-width: 769px) {
@@ -99,7 +100,7 @@ body {
   .JobCard {
     width: 30vw;
     height: 40vh;
-    margin: 20px auto;
+    margin: 40px auto;
   }
 }
 

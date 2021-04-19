@@ -5,9 +5,9 @@ import ThemeToggle from "../components/ThemeToggle";
 
 export default function Header() {
     return (
-        <div className="Header">
-            <ThemeToggle />
-    
-        </div>
-    )
+      <div className="Header">
+        <span className="title">GitHub Jobs</span>
+        <ThemeToggle />
+      </div>
+    );
 }
