@@ -32,14 +32,19 @@ export default function Jobs() {
         {store.jobs
           .map((job) => <JobCard key={job.id} job={job} />)
           .slice(0, resultsNow)}
-      </div>
-      <div className="LoadMore">
-        <button className="actionBtn" onClick={()=> {
-          dispatch({
-            type: actionTypes.LOAD_MORE
-          })
 
-        }}>Load More</button>
+        <div className="LoadMore">
+          <button
+            className="actionBtn"
+            onClick={() => {
+              dispatch({
+                type: actionTypes.LOAD_MORE,
+              });
+            }}
+          >
+            Load More
+          </button>
+        </div>
       </div>
     </>
   ) : (
