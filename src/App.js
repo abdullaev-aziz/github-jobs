@@ -1,20 +1,20 @@
 import Header from "./components/Header";
 import Jobs from "./components/Jobs";
-import useFetch from "./hooks/useFetch";
 import useGeolocation from "./hooks/useGeolocation";
 import React from "react";
 import { useSelector } from "react-redux";
+import DefaultJobs from './components/DefaultJobs'
 
 function App() {
-  const jobs = useFetch("/positions.json?page=1");
   useGeolocation();
 
   const themeStyle = useSelector((store) => store.currentTheme);
 
   return (
-    <div className="App" style={themeStyle}>
+    <div className="App" style={themeStyle.App}>
+      <DefaultJobs/>
       <Header />
-      <Jobs jobs={jobs} />
+      <Jobs />
     </div>
   );
 }

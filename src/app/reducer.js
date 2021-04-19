@@ -3,7 +3,7 @@ import themes from "../styles/themes";
 import updateStore from "./updateStore";
 
 export default function reducer(
-  store = { currentTheme: {}, query: "", results: [] },
+  store = { currentTheme: {}, query: "", jobs: [] },
   action
 ) {
   switch (action.type) {
@@ -15,8 +15,8 @@ export default function reducer(
     }
     case actions.SEARCH_QUERY:
       return updateStore(store, "query", action.payload.query);
-    case actions.SHOW_JOBS:
-      return updateStore(store, "results", action.payload.jobs);
+    case actions.SET_JOBS:
+      return updateStore(store, "jobs", action.payload.jobs);
     default:
       return store;
   }
