@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import ThemeContext from './ThemeContext'
-import isDarkTheme from '../utils/isDarkTheme'
-import themes from "../styles/themes";
+import isDarkTheme from '../../utils/isDarkTheme'
+import themes from "../../styles/themes";
 
 const dark = isDarkTheme();
 

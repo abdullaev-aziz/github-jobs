@@ -1,15 +1,25 @@
 import colors from "./colors";
 const lightTheme = {
-  App: {
-    backgroundColor: colors.lightGray,
-    color: colors.black,
+  name: "lightTheme",
+  styles: {
+    App: { backgroundColor: colors.lightGray, color: colors.black },
+    JobCard: { backgroundColor: colors.white, color: colors.black },
+    JobDescription: { backgroundColor: colors.white, color: colors.black },
   },
 };
 
 const darkTheme = {
-  App: {
-    backgroundColor: colors.darkBlue,
-    color: colors.white,
+  name: "darkTheme",
+  styles: {
+    App: {
+      backgroundColor: colors.darkBlue,
+      color: colors.white,
+    },
+    JobCard: { backgroundColor: colors.lightBlue, color: colors.white },
+    JobDescription: {
+      backgroundColor: colors.lightBlue,
+      color: colors.white,
+    },
   },
 };
 
