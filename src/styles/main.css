@@ -2,6 +2,11 @@
   box-sizing: border-box;
 }
 
+.App {
+  margin-bottom: 20px;
+
+}
+
 .darkTheme {
   background-color: #131822;
 }
@@ -74,7 +79,6 @@ textarea:focus, input:focus{
 
 body {
   margin: 0;
-  margin-bottom: 20px;
   padding: 0;
   font-family: "Calibri";
   background-color: #ffffffc2;
