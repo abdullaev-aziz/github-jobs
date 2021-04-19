@@ -2,8 +2,8 @@ import React from 'react'
 
 export default function GeolocationFilter() {
     return (
-        <div>
-            
-        </div>
+        <>
+        <input className="GeolocationFilter" type="text" placeholder="Filter by location"/>
+        </>
     )
 }

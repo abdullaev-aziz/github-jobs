@@ -1,5 +1,5 @@
 import React from 'react'
-import {useDispatch, useSelector} from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import useFetch from '../hooks/useFetch';
 
 export default function SearchButton() {
@@ -7,16 +7,13 @@ export default function SearchButton() {
     const dispatch = useDispatch();
     const getNewResults = () => {
         dispatch({
-            
+
         })
     }
 
 
     return (
-        <div>
-            <button onClick={()=> {
-                useFetch(store.query)
-            }}>Search</button>
-        </div>
+        <><button className="SearchButton actionBtn">Search</button>
+        </>
     )
 }

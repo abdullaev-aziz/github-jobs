@@ -5,6 +5,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import DefaultJobs from "./components/DefaultJobs";
 import JobDescription from "./components/JobDescription";
+import SearchBar from "./containers/SearchBar";
 
 function App() {
   useGeolocation();
@@ -16,6 +17,7 @@ function App() {
     <div className="App" style={App}>
       <DefaultJobs />
       <Header />
+      <SearchBar/>
       {showDesc && <JobDescription url={url} description={descHtml} />}
       <Jobs />
     </div>

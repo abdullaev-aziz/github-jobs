@@ -5,8 +5,15 @@ import actionTypes from "../app/actionTypes";
 
 export default function ThemeToggle() {
   const dispatch = useDispatch();
-  const toggleThemeDispatcher = () =>
+  const toggleThemeDispatcher = () => {
     dispatch({ type: actionTypes.TOGGLE_THEME });
+    if (document.body.classList.contains('darkTheme')) {
+      document.body.classList.remove('darkTheme')
+    } else {
+      document.body.classList.add('darkTheme')
+    }
+
+  }
 
   const currentTheme = useSelector((store) => store.currentTheme.name);
   console.log("current theme", currentTheme);

@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Spinner from "../components/Spinner";
 
 import actionTypes from '../app/actionTypes'
+import SearchBar from "./SearchBar";
 
 
 export default function Jobs() {

@@ -3,12 +3,14 @@ import themes from "../styles/themes";
 
 let currentTheme = {};
 //figure out if dark mode is preferred
-
+let isDark = false;
 if (isDarkTheme()) {
+  isDark = true;
   currentTheme = themes.darkTheme;
 } else currentTheme = themes.lightTheme;
 
 const defaultState = {
+  isDark: isDark,
   currentTheme: currentTheme,
   description: {
     showDesc: false,
