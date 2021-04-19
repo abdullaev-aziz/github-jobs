@@ -34,7 +34,7 @@ export default function Jobs() {
           .slice(0, resultsNow)}
       </div>
       <div className="LoadMore">
-        <button onClick={()=> {
+        <button className="actionBtn" onClick={()=> {
           dispatch({
             type: actionTypes.LOAD_MORE
           })

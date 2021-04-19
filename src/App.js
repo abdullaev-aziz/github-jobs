@@ -15,14 +15,14 @@ function App() {
   const store = useSelector((store) => store);
   const {App} = store.currentTheme.styles
   const {showJobs} = store;
-  const {showDesc, descHtml} = store.description;
+  const {showDesc, descHtml, url} = store.description;
   console.log('showDesc', showDesc)
 
   return (
     <div className="App" style={App}>
       <DefaultJobs />
       <Header />
-      {showDesc && <JobDescription description={descHtml} />}
+      {showDesc && <JobDescription url={url} description={descHtml} />}
       <Jobs />
     </div>
   );

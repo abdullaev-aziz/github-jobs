@@ -22,10 +22,11 @@ export default function reducer(store = updateStore(defaultState), action) {
     }
 
     case actions.SHOW_DESCRIPTION: {
-      const {showDesc, descHtml} = action.payload
+      const {showDesc, descHtml, url} = action.payload
       const description = {
         showDesc,
-        descHtml
+        descHtml,
+        url
       }
       return updateStore(store, "description", description)
     }

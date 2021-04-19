@@ -13,6 +13,7 @@ const defaultState = {
   description: {
     showDesc: false,
     descHtml: "",
+    url: ''
   },
   jobs: [],
   showJobs: true,

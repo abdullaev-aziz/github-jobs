@@ -11,6 +11,7 @@ export default function JobCard({ job }) {
     company,
     location,
     company_logo,
+    url,
     description,
   } = job;
   const dispatch = useDispatch();
@@ -21,6 +22,7 @@ export default function JobCard({ job }) {
       payload: {
         showDesc: true,
         descHtml: description,
+        url: url
       },
     });
 
