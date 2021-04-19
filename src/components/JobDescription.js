@@ -24,12 +24,12 @@ export default function JobDescription({ description, url }) {
 
   return (
     <div className="JobDescription" style={descStyle}>
-      <div className="descHeader">
+      <div className="buttonContainer">
         <a href={url} target="_blank">
           <button className="actionBtn">Apply Now</button>
         </a>
       </div>
-      <div
+      <div className="descriptionTxt"
         dangerouslySetInnerHTML={{
           __html: description,
         }}
