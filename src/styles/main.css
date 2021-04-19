@@ -1,0 +1,36 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+@media screen and (min-width: 769px) {
+  .JobContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .JobCard {
+    width: 30vw;
+    height: 40vh;
+    margin: 20px auto;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .App {
+    background: #333;
+    color: white;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .App {
+    background: white;
+    color: #555;
+  }
+}

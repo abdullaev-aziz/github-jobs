@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import JobCard from './JobCard'
 
-export default function Jobs({jobs}) {
-    return (
-        <div>
-            {jobs.map(job => <h5 key={job?.id}>{job?.title}</h5>)}
-        </div>
-    )
+export default function Jobs({ jobs }) {
+  return (
+    <div className="JobContainer">
+      {jobs.map((job) => (
+        <JobCard key={job.id} job={job} />
+      ))}
+    </div>
+  );
 }
