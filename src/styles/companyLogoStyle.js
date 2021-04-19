@@ -7,7 +7,7 @@ const companyLogoStyle = {
   borderRadius: "10px",
   position: "relative",
   left: "0px",
-  top: "-40px",
+  top: "-20px",
   backgroundPosition: "center" /* Center the image */,
   backgroundSize:
     "contain" /*  fit entire img into container, preserving aspect ratio */,
