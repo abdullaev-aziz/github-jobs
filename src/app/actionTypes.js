@@ -1,6 +1,6 @@
 const actionTypes = {
     SEARCH_QUERY: 'newSearchQuery',
-    SHOW_JOBS: 'showJobs',
+    SET_JOBS: 'showJobs',
     TOGGLE_THEME: 'toggleTheme'
 }
 

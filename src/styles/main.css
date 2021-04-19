@@ -7,6 +7,10 @@ body {
   padding: 0;
 }
 
+.lds-ring {
+  font-size: 1rem;
+}
+
 @media screen and (min-width: 769px) {
   .JobContainer {
     display: flex;
@@ -26,11 +30,27 @@ body {
     background: #333;
     color: white;
   }
+  .lds-ring {
+    color: rgb(226, 222, 222);
+    background-color: rgb(39, 39, 39);
+  }
+  .lds-ring div {
+    border: 24px solid #fff;
+    border-color: #fff transparent transparent transparent;
+  }
 }
 
 @media (prefers-color-scheme: light) {
   .App {
     background: white;
     color: #555;
+  }
+  .lds-ring {
+    color: rgb(39, 39, 39);
+    background-color: rgb(226, 222, 222);
+  }
+  .lds-ring div {
+    border: 24px solid rgb(39, 39, 39);
+    border-color: rgb(39, 39, 39) transparent transparent transparent;
   }
 }
