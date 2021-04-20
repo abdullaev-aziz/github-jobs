@@ -34,7 +34,7 @@ html {
   background: var(--light-gray);
 }
 
-.App.darkTheme, .JobContainer {
+.App.darkTheme, .JobContainer.darkTheme {
   background-color: var(--dark-blue);
 }
 
