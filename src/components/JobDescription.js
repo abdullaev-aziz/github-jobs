@@ -5,10 +5,6 @@ import actionTypes from "../app/actionTypes";
 export default function JobDescription({ description, url }) {
   const dispatch = useDispatch();
 
-  const descStyle = useSelector(
-    (store) => store.currentTheme.styles.JobDescription
-  );
-
   const toggleJobs = () => {
     dispatch({
       type: actionTypes.TOGGLE_JOBS,
@@ -23,8 +19,13 @@ export default function JobDescription({ description, url }) {
   };
 
   return (
+<<<<<<< Updated upstream
     <div className="JobDescription" style={descStyle}>
       <div className="descHeader">
+=======
+    <div className="JobDescription">
+      <div className="buttonContainer">
+>>>>>>> Stashed changes
         <a href={url} target="_blank">
           <button className="actionBtn">Apply Now</button>
         </a>

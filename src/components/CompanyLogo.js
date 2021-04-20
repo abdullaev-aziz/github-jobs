@@ -1,13 +1,16 @@
-import React from "react";
-import companyLogoStyle from '../styles/companyLogoStyle'
+import React, { useRef } from "react";
 
 export default function CompanyLogo({ logo }) {
-  const renderImg = logo && logo.indexOf("jobs.github.com") > -1 && (
-    <div
-      className="CompanyLogo"
-      src=""
-      style={{ ...companyLogoStyle, backgroundImage: `url("${logo}")` }}
-    />
+  const logoRef = useRef();
+
+  if (!logo || logo.indexOf("jobs.github.com") === -1) return <></>;
+
+  if (logoRef.current) {
+    logoRef.current.style.backgroundImage = `url("${logo}")`;
+  }
+  return (
+    <div>
+      <div className="CompanyLogo" ref={logoRef} src="" />
+    </div>
   );
-  return <div>{renderImg}</div>;
 }

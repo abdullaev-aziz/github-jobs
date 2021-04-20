@@ -8,8 +8,7 @@ export default function ThemeToggle() {
   const toggleThemeDispatcher = () =>
     dispatch({ type: actionTypes.TOGGLE_THEME });
 
-  const currentTheme = useSelector((store) => store.currentTheme.name);
-  console.log("current theme", currentTheme);
+  const isDark = useSelector((store) => store.isDark);
 
   return (
     <>
@@ -17,7 +16,7 @@ export default function ThemeToggle() {
         <input
           type="checkbox"
           onChange={toggleThemeDispatcher}
-          checked={currentTheme === "darkTheme" ? true : false}
+          checked={isDark}
         />
         <span className="slider round"></span>
       </label>

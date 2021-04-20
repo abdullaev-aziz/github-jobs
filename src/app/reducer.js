@@ -1,39 +1,30 @@
-import actions from "./actionTypes";
-import themes from "../styles/themes";
-import updateStore from "./updateStore";
+import types from "./actionTypes";
 import defaultState from "./defaultState";
 
-export default function reducer(store = updateStore(defaultState), action) {
+export default function reducer(store = defaultState, action) {
   switch (action.type) {
-    case actions.TOGGLE_THEME: {
-      return store.currentTheme.name === themes.lightTheme.name
-        ? updateStore(store, "currentTheme", themes.darkTheme)
-        : updateStore(store, "currentTheme", themes.lightTheme);
+    //search related actions
+    case types.QUERY_URL: {
+      const oldQuery = {...store.queryURL}
+      return {
+        ...store,
+        queryURL: {...oldQuery, ...action.payload}
     }
-    case actions.SEARCH_QUERY:
-      return updateStore(store, "query", action.payload.query);
-    case actions.SET_JOBS:
-      return updateStore(store, "jobs", action.payload.jobs);
-    case actions.LOAD_MORE: {
-      const { resultsNow, resultsPerPage, jobs } = store;
-      const shownResults = resultsNow + resultsPerPage;
-      if (shownResults < jobs.length)
-        return updateStore(store, "resultsNow", shownResults);
-    }
+  }
 
-    case actions.SHOW_DESCRIPTION: {
-      const {showDesc, descHtml, url} = action.payload
-      const description = {
-        showDesc,
-        descHtml,
-        url
-      }
-      return updateStore(store, "description", description)
-    }
+    //theme related actions
+    case types.DARK_THEME:
+      return { ...store, isDark: action.payload };
+    case types.SHOW_DESCRIPTION:
+      return { ...store, showJobDescription: action.payload };
+    case types.TOGGLE_JOBS:
+      return { ...store, jobsVisible: action.payload };
 
-    case actions.TOGGLE_JOBS: {
-      return updateStore(store, 'showJobs', !store.showJobs)
-    }
+    //data related actions
+    case types.NEW_JOBS:
+      return { ...store, jobs: action.payload };
+    case types.LOAD_MORE:
+      return { ...store, jobs: store.jobs.concat(action.payload) };
 
     default:
       return store;

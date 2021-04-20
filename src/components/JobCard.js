@@ -34,10 +34,8 @@ export default function JobCard({ job }) {
   //get utc string to use getTimeAgo fn
   const curDate = new Date().toISOString();
   const timeAgo = getTimeAgo(curDate, created_at);
-
-  const cardStyle = useSelector(store => store.currentTheme.styles.JobCard)
   return (
-    <div className="JobCard" onClick={viewDesc} style={cardStyle}>
+    <div className="JobCard" onClick={viewDesc}>
       <CompanyLogo logo={company_logo} />
       <div className="jobAge">{timeAgo}-{type}</div>
       <div className="jobTitle">{title}</div>

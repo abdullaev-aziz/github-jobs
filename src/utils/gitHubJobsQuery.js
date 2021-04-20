@@ -1,24 +1,23 @@
-function isValidStr(str) {
-  return typeof search === "string" && search.length > 0;
-}
-
 function sanitizeString(str) {
-  return (str = str.replace(/[^a-z0-9\.,_-]/gim, "")).toLowerCase();
+  return (str = str.replace(/[^a-zA-Z0-9&?=/\.,_-]/gim, ""));
 }
 
-export default function gitHubJobsQuery(params) {
-  let baseUrl = "/positions.json";
-  let query = "";
+export default function gitHubJobsQuery(baseUrl, params={}) {
+  let queries = [];
 
   for (const [key, value] of Object.entries(params)) {
-      if(isValidStr(val))
-  }
-  arguments.forEach((arg) => {
-    if (isValidStr(arg)) {
-      query += sanitizeString(arg);
+    if(value || value === false) {
+      queries.push(key, value)
     }
-  });
+  }
 
-  baseUrl += query.length > 0 && `?${query}`;
-  return baseUrl;
+  queries = queries.map((query,ind) => {
+    if(ind ===0) return `?${query}=`
+    if(ind ===queries.length) return;
+    if(ind%2===0) return `&${query}=`
+    return query;
+  })
+
+  const newUrl = baseUrl + queries.join('')
+  return sanitizeString(newUrl);
 }
