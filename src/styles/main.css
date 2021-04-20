@@ -252,6 +252,9 @@ body {
   .JobCard {
     background: #19212d;
   }
+  .JobContainer {
+    background: var(--dark-blue)
+  }
   .lds-ring {
     color: rgb(226, 222, 222);
     background-color: rgb(39, 39, 39);
