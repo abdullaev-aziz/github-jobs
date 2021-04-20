@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import actionTypes from "../app/actionTypes";
 import useDarkTheme from "../hooks/useDarkTheme";
 
+
 export default function JobCard({ job }) {
   const { created_at, type, title, company, location, company_logo } = job;
   const jobCardRef = useDarkTheme()

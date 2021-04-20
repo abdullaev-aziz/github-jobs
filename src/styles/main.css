@@ -4,6 +4,7 @@
   box-sizing: border-box;
 }
 
+<<<<<<< HEAD
 html {
   margin: 0px;
   padding: 0px;
@@ -65,10 +66,28 @@ input {
 
 textarea:focus,
 input:focus {
+=======
+.App {
+  margin-bottom: 20px;
+
+}
+
+.darkTheme {
+  background-color: #131822;
+}
+
+input {
+  border: none;
+  outline: #353638;
+}
+
+textarea:focus, input:focus{
+>>>>>>> main
   outline: black;
 }
 
 .SearchBar {
+<<<<<<< HEAD
   width: 80%;
   flex-direction: column;
   display: flex;
@@ -92,6 +111,18 @@ input:focus {
   flex-basis: 100%;
   justify-content: center;
   flex-direction: row;
+=======
+  display: flex;
+  flex-wrap: wrap;
+  flex-basis: 100%;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  align-items: stretch;
+}
+
+.filtersContainer {
+>>>>>>> main
   flex-basis: 100%;
   display: flex;
   align-items: stretch;
@@ -104,24 +135,48 @@ input:focus {
 }
 
 .SearchInput {
+<<<<<<< HEAD
   width: 30%;
+=======
+  width: 40%;
+>>>>>>> main
 }
 
 .GeolocationFilter {
   width: 30%;
 }
+<<<<<<< HEAD
 .GeolocationFilter > input, .SearchInput > input {
   display: inline-block;
   width: 100%;
 }
 
+=======
+
+.FullTimeFilter {
+  display: inline-block;
+  text-align: left;
+  width: 20%;
+  margin: auto;
+}
+
+.SearchButton {
+  width:  10%;
+}
+
+
+>>>>>>> main
 .Header {
   padding-left: 20px;
   left: 0;
   top: 0;
   height: 60px;
+<<<<<<< HEAD
   background-color: var(--common-purple);
   color: white;
+=======
+  background-color: #5865E0;
+>>>>>>> main
   width: 100%;
 }
 
@@ -131,17 +186,24 @@ input:focus {
   margin: 10px;
 }
 
+<<<<<<< HEAD
 .title {
   display: inline-block;
   font-size: 1.5rem;
   margin: 10px;
 }
 
+=======
+>>>>>>> main
 body {
   margin: 0;
   padding: 0;
   font-family: "Calibri";
+<<<<<<< HEAD
   background-color: var(--dark-blue);
+=======
+  background-color: #ffffffc2;
+>>>>>>> main
 }
 
 .lds-ring {
