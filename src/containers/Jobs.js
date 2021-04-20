@@ -2,9 +2,10 @@ import React, { useRef, useEffect, useState } from "react";
 import JobCard from "../components/JobCard";
 import { useSelector } from "react-redux";
 import Spinner from "../components/Spinner";
+import useDarkTheme from "../hooks/useDarkTheme";
 
 export default function Jobs() {
-  const jobsRef = useRef();
+  const jobsRef = useDarkTheme();
   const store = useSelector((store) => store);
   const { jobs, jobsVisible, resultsPerPage } = store;
   const [resultsShown, setResultsShown] = useState(12);
