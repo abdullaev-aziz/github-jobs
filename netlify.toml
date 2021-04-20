@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "/positions.json/*"
+  to = "https://jobs.github.com/positions.json/:splat"
+  status = 200
+  force = true
