@@ -1,22 +1,3 @@
-<<<<<<< Updated upstream
-import isDarkTheme from "../utils/isDarkTheme";
-import themes from "../styles/themes";
-
-let currentTheme = {};
-//figure out if dark mode is preferred
-
-if (isDarkTheme()) {
-  currentTheme = themes.darkTheme;
-} else currentTheme = themes.lightTheme;
-
-const defaultState = {
-  currentTheme: currentTheme,
-  description: {
-    showDesc: false,
-    descHtml: "",
-    url: ''
-  },
-=======
 /**
  * defaultState is an object for redux store
  * isDark - true if dark mode is default, false otherwise
@@ -31,7 +12,6 @@ const defaultState = {
 const defaultState = {
   isDark: false,
   showJobDescription: false,
->>>>>>> Stashed changes
   jobs: [],
   jobsVisible: true,
   currentJob: {},
