@@ -1,30 +1,15 @@
-import { useEffect, useState } from "react";
-export const useDarkMode = () => {
-  const [theme, setTheme] = useState("light");
-  const [componentMounted, setComponentMounted] = useState(false);
+import {useRef, useEffect} from 'react'
+import {useSelector} from 'react-redux'
 
-  const setMode = (mode) => {
-    window.localStorage.setItem("theme", mode);
-    setTheme(mode);
-  };
-
-  const toggleTheme = () => {
-    if (theme === "light") {
-      setMode("dark");
-    } else {
-      setMode("light");
-    }
-  };
-
+export default function useDarkTheme() {
+  const { isDark } = useSelector((store) => store);
+  const appRef = useRef();
   useEffect(() => {
-    const localTheme = window.localStorage.getItem("theme");
-    if (localTheme) {
-      setTheme(localTheme);
-    } else {
-      setMode("light");
-    }
-    setComponentMounted(true);
-  }, []);
+    if(!appRef.current) return;
+    if(isDark) {
+      appRef.current.classList.add("darkTheme")
+    } else  appRef.current.classList.remove("darkTheme");
+  }, [isDark, appRef]);
 
-  return [theme, toggleTheme, componentMounted];
-};
+  return appRef;
+}

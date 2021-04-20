@@ -1,43 +1,68 @@
 import actions from "../app/actionTypes";
-import { useEffect } from "react";
-import useFetch from "../hooks/useFetch";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import isDarkTheme from "../utils/isDarkTheme";
-import useGeolocation from "../hooks/useGeolocation";
 import gitHubJobsQuery from "../utils/gitHubJobsQuery";
 import { BASE_URL } from "../app/constants";
 import fetchGitApi from "../adapters/fetchGitApi";
 import { getUserLocation } from "../utils/getUserLocation";
+import isDarkTheme from "../utils/isDarkTheme";
+
+/**
+ * First Time Load
+ * Asking for Geolocation
+ * Retrieving jobs based on location permission
+ */
 
 export default function DefaultJobs({ children }) {
   const dispatch = useDispatch();
   const urlParams = useSelector((store) => store.queryURL);
-  const query = gitHubJobsQuery(BASE_URL, urlParams);
-  const jobs = useFetch(query);
-  // const coordinates = useGeolocation();
+  const [permission, setPermission] = useState(false);
 
-  //first time load
-  //don't put async callbacks in use effects
-
-  useEffect(() => {
-    //updating coordinates in store if permission is granted
-    getUserLocation(({ coords }) => {
-      const payload = { lat: coords.latitude, long: coords.longitude };
-      dispatch({ type: actions.QUERY_URL, payload });
+  const setDefaultJobs = async (url) => {
+    const jobs = await fetchGitApi(url);
+    console.log(jobs);
+    dispatch({
+      type: actions.NEW_JOBS,
+      payload: jobs,
     });
-    //updating jobs
+  };
+
+  //CHECK IF DADRK MODE IS DEFAULT ON THE DEVICE
+  useEffect(() => {
+    if (isDarkTheme()) {
+      dispatch({ type: actions.DARK_THEME, payload: true });
+    }
   }, []);
 
+  //USER LOCATION
+
   useEffect(() => {
-    console.log(urlParams);
-    fetchGitApi(gitHubJobsQuery(BASE_URL, urlParams)).then((jobs) => {
-      console.log(jobs);
-      dispatch({
-        type: actions.NEW_JOBS,
-        payload: jobs,
-      });
+    getUserLocation(
+      //on success
+      ({ coords }) => {
+        const payload = { lat: coords.latitude, long: coords.longitude };
+        dispatch({ type: actions.QUERY_URL, payload });
+        setPermission(true);
+      },
+      //user denied location
+      //set permission to true, will load default location
+      () => setPermission(true)
+    );
+  }, []);
+
+  //JOBS RETRIEVE
+
+  if (permission) {
+    //prevent future fetches
+    const url = gitHubJobsQuery(BASE_URL, urlParams);
+    dispatch({
+      type: actions.QUERY_URL,
+      payload: { lat: "", long: "" },
     });
-  });
+
+    setDefaultJobs(url);
+    setPermission(false);
+  }
 
   return <>{children}</>;
 }

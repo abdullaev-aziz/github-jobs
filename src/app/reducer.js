@@ -23,9 +23,8 @@ export default function reducer(store = defaultState, action) {
     //data related actions
     case types.NEW_JOBS:
       return { ...store, jobs: action.payload };
-    case types.LOAD_MORE:
-      return { ...store, jobs: store.jobs.concat(action.payload) };
-
+    case types.CURRENT_JOB: return {
+      ...store, currentJob: action.payload}
     default:
       return store;
   }

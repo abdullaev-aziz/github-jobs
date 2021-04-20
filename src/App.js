@@ -1,17 +1,22 @@
-import Header from "./containers/Header";
 import Jobs from "./containers/Jobs";
-import useGeolocation from "./hooks/useGeolocation";
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React from "react";
 import DefaultJobs from "./components/DefaultJobs";
 import JobDescription from "./components/JobDescription";
+import useDarkTheme from "./hooks/useDarkTheme";
 import SearchBar from "./containers/SearchBar";
-import SearchButton from "./components/SearchButton";
-import { getUserLocation } from "./utils/getUserLocation";
-import actionTypes from "./app/actionTypes";
+import Header from "./containers/Header";
 
 function App() {
-  return <div className="App"><DefaultJobs/></div>;
+  const appRef = useDarkTheme();
+  return (
+    <div className="App" ref={appRef}>
+      <DefaultJobs />
+      <Header/>
+      <SearchBar />
+      <Jobs />
+      <JobDescription />
+    </div>
+  );
 }
 
 export default App;

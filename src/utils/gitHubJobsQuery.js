@@ -6,7 +6,7 @@ export default function gitHubJobsQuery(baseUrl, params={}) {
   let queries = [];
 
   for (const [key, value] of Object.entries(params)) {
-    if(value || value === false) {
+    if(value) {
       queries.push(key, value)
     }
   }

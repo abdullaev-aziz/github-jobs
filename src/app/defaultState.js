@@ -10,6 +10,7 @@
  */
 
 const defaultState = {
+  isLoading: false,
   isDark: false,
   showJobDescription: false,
   jobs: [],
@@ -17,7 +18,7 @@ const defaultState = {
   currentJob: {},
   queryURL: {
     search: "",
-    geo:"",
+    location:"",
     page: 1,
     full_time: false,
     lat: "",

@@ -1,26 +1,24 @@
 import React from "react";
 import actions from "../app/actionTypes";
 import { useDispatch } from "react-redux";
+import { debounce } from "lodash";
 
 export default function FullTimeFilter() {
-<<<<<<< Updated upstream
-    return (
-        <div>
-            
-        </div>
-    )
-=======
   const dispatch = useDispatch();
-  const updateCheck = (e) =>
-    dispatch({
-      type: actions.FULLTIME_QUERY,
-      payload: e.target.checked,
-    });
-  return (
-    <span className="FullTimeFilter">
-      <input type="checkbox" onChange={updateCheck} id="fulltime-chk" />
-      <label for="fulltime-chk">Full Time Only</label>
-    </span>
+  const updateFulltime = debounce(
+    (e) =>
+      dispatch({
+        type: actions.QUERY_URL,
+        payload: { full_time: e.target.checked },
+      }),
+    300
   );
->>>>>>> Stashed changes
+  return (
+    <div className="FullTimeFilter">
+      <div>
+        <input type="checkbox" onChange={updateFulltime} id="fulltime-chk" />
+        <label for="fulltime-chk">Full Time Only</label>
+      </div>
+    </div>
+  );
 }

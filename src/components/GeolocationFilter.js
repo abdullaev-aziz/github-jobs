@@ -1,31 +1,25 @@
 import React from "react";
 import actions from "../app/actionTypes";
 import { useDispatch } from "react-redux";
+import { debounce } from "lodash";
 
 export default function GeolocationFilter() {
-<<<<<<< Updated upstream
-    return (
-        <div>
-            
-        </div>
-    )
-}
-=======
   const dispatch = useDispatch();
-  const updateGeo = (e) =>
-    dispatch({
-      type: actions.GEO_QUERY,
-      payload: e.target.value,
-    });
+  const updateGeo = debounce(
+    (e) =>
+      dispatch({
+        type: actions.QUERY_URL,
+        payload: { location: e.target.value, lat: "", long: "" },
+      }),
+    300
+  );
   return (
-    <>
+    <div className="GeolocationFilter">
       <input
-        className="GeolocationFilter"
         type="text"
         onChange={updateGeo}
         placeholder="Filter by location"
       />
-    </>
+    </div>
   );
 }
->>>>>>> Stashed changes
