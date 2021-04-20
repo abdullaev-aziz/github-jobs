@@ -24,18 +24,20 @@ export default function DefaultJobs({ children }) {
     getUserLocation(({ coords }) => {
       const payload = { lat: coords.latitude, long: coords.longitude };
       dispatch({ type: actions.QUERY_URL, payload });
-    })
-
+    });
     //updating jobs
-    console.log('urlParams', urlParams)
+  }, []);
+
+  useEffect(() => {
+    console.log(urlParams);
     fetchGitApi(gitHubJobsQuery(BASE_URL, urlParams)).then((jobs) => {
-      console.log(jobs)
+      console.log(jobs);
       dispatch({
         type: actions.NEW_JOBS,
         payload: jobs,
       });
     });
-  }, []);
+  });
 
   return <>{children}</>;
 }
