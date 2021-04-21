@@ -15,10 +15,8 @@ export default function FullTimeFilter() {
   );
   return (
     <div className="FullTimeFilter">
-      <div>
         <input type="checkbox" onChange={updateFulltime} id="fulltime-chk" />
         <label for="fulltime-chk">Full Time Only</label>
       </div>
-    </div>
   );
 }

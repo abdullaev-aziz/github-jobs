@@ -17,9 +17,9 @@ html {
   --light-blue: #19212d;
 }
 
-.JobCard,
 .JobDescription,
-.SearchBar {
+.SearchBar,
+.JobCard {
   margin: 20px auto;
   background-color: var(--white-lt);
   color: var(--dark-blue);
@@ -29,12 +29,13 @@ html {
   margin: 0px;
 } */
 
-.App, .JobContainer {
+.App {
   overflow: hidden;
   background: var(--light-gray);
 }
 
-.App.darkTheme, .JobContainer.darkTheme {
+.App.darkTheme,
+.JobContainer.darkTheme {
   background-color: var(--dark-blue);
 }
 
@@ -42,7 +43,6 @@ html {
   background: var(--light-blue);
   color: var(--white-lt);
 }
-
 
 .JobCard.darkTheme,
 .SearchBar.darkTheme {
@@ -62,8 +62,6 @@ input {
   outline: #353638;
 }
 
-
-
 textarea:focus,
 input:focus {
   outline: black;
@@ -71,7 +69,6 @@ input:focus {
 
 .SearchBar {
   width: 80%;
-  flex-direction: column;
   display: flex;
   flex-wrap: nowrap;
   flex-basis: 100%;
@@ -79,7 +76,6 @@ input:focus {
   align-items: center;
   margin: 0 auto;
 }
-
 
 .descTop {
   flex-direction: column;
@@ -111,7 +107,8 @@ input:focus {
 .GeolocationFilter {
   width: 30%;
 }
-.GeolocationFilter > input, .SearchInput > input {
+.GeolocationFilter > input,
+.SearchInput > input {
   display: inline-block;
   width: 100%;
 }
@@ -185,13 +182,12 @@ body {
   background-color: #5865e0;
   color: #ffffff;
   border-radius: 5px;
-  width: 150px;
+  min-width: 40px;
+  max-width: 150px;
   padding: 10px;
   font-size: 1rem;
   font-weight: bold;
 }
-
-
 
 .descriptionTxt {
   margin-top: 10px;
@@ -220,7 +216,6 @@ body {
   border-radius: 5px;
   margin: 20px;
   padding: 10px;
-  background: #ffffff;
   height: 240px;
   width: 100%;
   cursor: pointer;
@@ -237,23 +232,24 @@ body {
     margin: 20px auto;
   }
 
-  .SearchBar, .descTop {
+  .SearchBar,
+  .descTop {
     flex-direction: row;
     justify-content: space-between;
   }
+}
 
+.FulltimeFilter {
+  display: flex;
+  background-color: red;
+  flex-wrap: nowrap;
 }
 
 @media (prefers-color-scheme: dark) {
   .App {
-    background: #333;
     color: white;
   }
-  .JobCard {
-    background: #19212d;
-  }
 
-  }
   .lds-ring {
     color: rgb(226, 222, 222);
     background-color: rgb(39, 39, 39);
@@ -268,6 +264,9 @@ body {
   .App {
     background: white;
     color: #555;
+  }
+  .JobCard {
+    background: var(--white-lt);
   }
   .lds-ring {
     color: rgb(39, 39, 39);
