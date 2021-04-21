@@ -44,43 +44,42 @@ export default function JobDescription() {
   },[showJobDescription])
 
   return (
-    (
-      <div className="backDesc">
-        <div className="JobDescription" ref={descriptionRef}>
-          <div className="descTop">
-            <CompanyLogo logo={company_logo} />
-            <div>
-              <div className="jobTitle">{company}</div>
-              <div>{company_url}</div>
-            </div>
+    <div className="backDesc">
+      <div className="JobDescription" ref={descriptionRef}>
+        <div className="descTop">
+          <CompanyLogo logo={company_logo} />
+          <div>
+            <div className="jobTitle">{company}</div>
+            <div>{company_url}</div>
+          </div>
+          <div className="descBtnGroup">
             <a href={company_url} target="_blank">
               <button className="actionBtn">Company Site</button>
             </a>
-
             <div className="buttonContainer">
               <a href={url} target="_blank" rel="noreferrer">
                 <button className="actionBtn">Apply Now</button>
               </a>
             </div>
-          </div>
-
-          <div className="jobAge">
-            {timeAgo} - {currentJob.type}
-          </div>
-          <div className="jobTitle">{title}</div>
-
-          <div
-            dangerouslySetInnerHTML={{
-              __html: description,
-            }}
-          ></div>
-          <div className="buttonContainer">
-            <button className="actionBtn" onClick={toggleJobs}>
-              Close
-            </button>
+            <div className="buttonContainer">
+              <button className="actionBtn" onClick={toggleJobs}>
+                Close
+              </button>
+            </div>
           </div>
         </div>
+
+        <div className="jobAge">
+          {timeAgo} - {currentJob.type}
+        </div>
+        <div className="jobTitle">{title}</div>
+
+        <div
+          dangerouslySetInnerHTML={{
+            __html: description,
+          }}
+        ></div>
       </div>
-    )
+    </div>
   );
 }
