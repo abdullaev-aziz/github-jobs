@@ -10,16 +10,21 @@ export default function SearchButton() {
   const dispatch = useDispatch();
 
   const getNewJobs = async () => {
+    dispatch({ type: actionTypes.LOADING_JOBS, payload: true });
     const request = gitHubJobsQuery(BASE_URL, query);
     console.log(request);
     const newJobs = await fetchGitApi(request);
+    dispatch({ type: actionTypes.LOADING_JOBS, payload: false });
+    
     dispatch({ type: actionTypes.NEW_JOBS, payload: newJobs });
-    dispatch({type:actionTypes.SHOW_DESCRIPTION, payload: false})
+    dispatch({ type: actionTypes.SHOW_DESCRIPTION, payload: false });
   };
 
   return (
     <div className="SearchButton">
-      <button onClick={getNewJobs} className="actionBtn">Search</button>
+      <button onClick={getNewJobs} className="actionBtn">
+        Search
+      </button>
     </div>
   );
 }

@@ -54,6 +54,12 @@ html {
   border: none;
 }
 
+.NoJobsFound {
+  position: relative;
+  top: 40%;
+  color:rgb(110, 108, 108);
+}
+
 textarea:focus,
 input:focus {
   outline: black;
@@ -214,6 +220,7 @@ body {
   padding: 10px;
   height: 240px;
   width: 100%;
+  max-width: 500px;
   cursor: pointer;
 }
 

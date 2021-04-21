@@ -23,6 +23,8 @@ export default function reducer(store = defaultState, action) {
       return { ...store, jobs: action.payload };
     case types.CURRENT_JOB: return {
       ...store, currentJob: action.payload}
+    case types.LOADING_JOBS:
+      return {...store, isLoading: action.payload}
     default:
       return store;
   }

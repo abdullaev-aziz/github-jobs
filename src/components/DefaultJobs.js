@@ -19,7 +19,9 @@ export default function DefaultJobs({ children }) {
   const [permission, setPermission] = useState(false);
 
   const setDefaultJobs = async (url) => {
+    dispatch({ type: actions.LOADING_JOBS, payload: true });
     const jobs = await fetchGitApi(url);
+    dispatch({ type: actions.LOADING_JOBS, payload: false });
     console.log(jobs);
     dispatch({
       type: actions.NEW_JOBS,

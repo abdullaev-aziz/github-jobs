@@ -3,11 +3,12 @@ import JobCard from "../components/JobCard";
 import { useSelector } from "react-redux";
 import Spinner from "../components/Spinner";
 import useDarkTheme from "../hooks/useDarkTheme";
+import NoJobsFound from "../components/NoJobsFound";
 
 export default function Jobs() {
   const jobsRef = useDarkTheme();
   const store = useSelector((store) => store);
-  const { jobs, showJobDescription, resultsPerPage } = store;
+  const { jobs, showJobDescription, resultsPerPage, isLoading } = store;
   const [resultsShown, setResultsShown] = useState(12);
 
   const loadMoreResults = () => {
@@ -20,7 +21,9 @@ export default function Jobs() {
     }
   }, [showJobDescription]);
 
-  return jobs.length > 0 ? (
+  return isLoading ? (
+    <Spinner />
+  ) : jobs.length > 0 ? (
     <>
       <div ref={jobsRef} className="JobContainer">
         {jobs
@@ -36,7 +39,5 @@ export default function Jobs() {
         )}
       </div>
     </>
-  ) : (
-    <Spinner />
-  );
+  ) : <NoJobsFound/>
 }
