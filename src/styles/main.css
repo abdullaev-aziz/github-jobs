@@ -4,17 +4,28 @@
   box-sizing: border-box;
 }
 
-html {
-  margin: 0px;
-  padding: 0px;
-}
-
 :root {
   --common-purple: #5865e0;
   --light-gray: #f5f6f8;
   --white-lt: #ffffff;
   --dark-blue: #131822;
   --light-blue: #19212d;
+}
+
+html {
+  margin: 0px;
+}
+
+body,
+.App {
+  background: var(--light-gray);
+}
+
+body.darkTheme,
+.SearchBar.darkTheme,
+.App.darkTheme,
+.JobContainer.darkTheme {
+  background: var(--dark-blue);
 }
 
 .JobDescription,
@@ -25,42 +36,23 @@ html {
   color: var(--dark-blue);
 }
 
-/* .JobDescription {
-  margin: 0px;
-} */
-
-.App {
-  overflow: hidden;
-  background: var(--light-gray);
-}
-
-.App.darkTheme,
-.JobContainer.darkTheme {
-  background-color: var(--dark-blue);
-}
-
-.JobDescription.darkTheme {
-  background: var(--light-blue);
-  color: var(--white-lt);
-}
-
 .JobCard.darkTheme,
-.SearchBar.darkTheme {
+.SearchBar.darkTheme,
+.JobDescription.darkTheme {
   color: var(--white-lt);
   background-color: var(--light-blue);
 }
 
 .SearchBar.darkTheme input {
-  border-left: var(--white-lt);
+  border-left: 1px solid var(--white-lt);
   color: var(--white-lt);
 }
 
-input {
+.SearchBar input {
   background: none;
-  border: none;
   display: inline-block;
-  /* height: 100%; */
   outline: #353638;
+  border: none;
 }
 
 textarea:focus,
@@ -143,7 +135,6 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Calibri";
-  background-color: var(--dark-blue);
 }
 
 .lds-ring {
@@ -182,7 +173,7 @@ body {
 }
 
 .actionBtn {
-  background-color: #5865e0;
+  background-color: var(--common-purple);
   color: #ffffff;
   border-radius: 5px;
   min-width: 40px;
@@ -210,7 +201,7 @@ body {
 .location {
   font-size: 0.75rem;
   font-weight: bold;
-  color: #5865e0;
+  color: var(--common-purple);
   position: absolute;
   bottom: 20px;
 }
