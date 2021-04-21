@@ -65,7 +65,7 @@ export default function JobDescription() {
           </div>
 
           <div className="jobAge">
-            {timeAgo}-{currentJob.type}
+            {timeAgo} - {currentJob.type}
           </div>
           <div className="jobTitle">{title}</div>
 

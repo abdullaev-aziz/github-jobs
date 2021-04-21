@@ -78,10 +78,9 @@ input:focus {
 }
 
 .descTop {
-  flex-direction: column;
   margin-top: 20px;
   display: flex;
-  /* justify-content: space-around; */
+  justify-content: space-between;
 }
 
 .filtersContainer {
@@ -166,8 +165,7 @@ body {
 }
 
 .JobDescription {
-  width: 80%;
-  margin: 0 auto;
+  margin: 0 20px;
   font-size: 0.8rem;
   padding: 20px;
   color: black;
@@ -186,7 +184,7 @@ body {
   width: 100px;
   max-width: 150px;
   padding: 10px;
-  font-size: 1rem;
+  font-size: 0.75rem;
   font-weight: bold;
 }
 
@@ -250,6 +248,7 @@ body {
 }
 
 .ft-lbl {
+  font-size: 0.75rem;
   margin-bottom: 0px;
 }
 

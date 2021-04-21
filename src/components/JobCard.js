@@ -35,7 +35,7 @@ export default function JobCard({ job }) {
     <div className="JobCard" onClick={viewDesc} ref={jobCardRef}>
       <CompanyLogo logo={company_logo} />
       <div className="jobAge">
-        {timeAgo}-{type}
+        {timeAgo} - {type}
       </div>
       <div className="jobTitle">{title}</div>
       <div className="company"> {company}</div>
