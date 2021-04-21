@@ -22,10 +22,6 @@ export default function JobDescription() {
 
   const toggleJobs = () => {
     dispatch({
-      type: actionTypes.TOGGLE_JOBS,
-      payload: true,
-    });
-    dispatch({
       type: actionTypes.SHOW_DESCRIPTION,
       payload: false,
     });

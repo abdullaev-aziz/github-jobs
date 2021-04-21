@@ -16,15 +16,14 @@ html {
   margin: 0px;
 }
 
-body,
-.App {
+.App, body {
   background: var(--light-gray);
 }
 
-body.darkTheme,
+
 .SearchBar.darkTheme,
 .App.darkTheme,
-.JobContainer.darkTheme {
+.JobContainer.darkTheme, body.darkTheme {
   background: var(--dark-blue);
 }
 
@@ -61,7 +60,8 @@ input:focus {
 }
 
 .SearchBar {
-  margin: 20px;
+  max-width: 800px;
+  margin: auto;
   display: flex;
   flex-wrap: nowrap;
   flex-basis: 100%;
@@ -161,7 +161,8 @@ body {
 }
 
 .JobDescription {
-  margin: 0 20px;
+  max-width: 800px;
+  margin: auto;
   font-size: 0.8rem;
   padding: 20px;
   color: black;

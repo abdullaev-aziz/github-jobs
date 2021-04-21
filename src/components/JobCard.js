@@ -6,7 +6,7 @@ import useDarkTheme from "../hooks/useDarkTheme";
 
 export default function JobCard({ job }) {
   const { created_at, type, title, company, location, company_logo } = job;
-  const jobCardRef = useDarkTheme()
+  const jobCardRef = useDarkTheme();
 
   //get utc string to use getTimeAgo fn
   const curDate = new Date().toISOString();
@@ -18,11 +18,6 @@ export default function JobCard({ job }) {
     dispatch({
       type: actionTypes.SHOW_DESCRIPTION,
       payload: true,
-    });
-
-    dispatch({
-      type: actionTypes.TOGGLE_JOBS,
-      payload: false,
     });
 
     dispatch({

@@ -14,6 +14,7 @@ export default function SearchButton() {
     console.log(request);
     const newJobs = await fetchGitApi(request);
     dispatch({ type: actionTypes.NEW_JOBS, payload: newJobs });
+    dispatch({type:actionTypes.SHOW_DESCRIPTION, payload: false})
   };
 
   return (

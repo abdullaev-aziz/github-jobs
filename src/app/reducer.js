@@ -17,8 +17,6 @@ export default function reducer(store = defaultState, action) {
       return { ...store, isDark: action.payload };
     case types.SHOW_DESCRIPTION:
       return { ...store, showJobDescription: action.payload };
-    case types.TOGGLE_JOBS:
-      return { ...store, jobsVisible: action.payload };
 
     //data related actions
     case types.NEW_JOBS:

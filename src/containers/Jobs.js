@@ -7,7 +7,7 @@ import useDarkTheme from "../hooks/useDarkTheme";
 export default function Jobs() {
   const jobsRef = useDarkTheme();
   const store = useSelector((store) => store);
-  const { jobs, jobsVisible, resultsPerPage } = store;
+  const { jobs, showJobDescription, resultsPerPage } = store;
   const [resultsShown, setResultsShown] = useState(12);
 
   const loadMoreResults = () => {
@@ -16,9 +16,9 @@ export default function Jobs() {
 
   useEffect(() => {
     if (jobsRef.current) {
-      jobsRef.current.style.display = jobsVisible ? "flex" : "none";
+      jobsRef.current.style.display = showJobDescription ? "none" : "flex";
     }
-  }, [jobsVisible]);
+  }, [showJobDescription]);
 
   return jobs.length > 0 ? (
     <>
