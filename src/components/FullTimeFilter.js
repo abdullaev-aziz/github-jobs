@@ -14,9 +14,9 @@ export default function FullTimeFilter() {
     300
   );
   return (
-    <div className="FullTimeFilter">
+    <div className="FulltimeFilter">
         <input type="checkbox" onChange={updateFulltime} id="fulltime-chk" />
-        <label for="fulltime-chk">Full Time Only</label>
+        <label className="ft-lbl" for="fulltime-chk">Full Time Only</label>
       </div>
   );
 }

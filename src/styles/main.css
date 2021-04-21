@@ -18,8 +18,8 @@ html {
 }
 
 .JobDescription,
-.SearchBar,
-.JobCard {
+.JobCard,
+.SearchBar {
   margin: 20px auto;
   background-color: var(--white-lt);
   color: var(--dark-blue);
@@ -51,6 +51,7 @@ html {
 }
 
 .SearchBar.darkTheme input {
+  border-left: var(--white-lt);
   color: var(--white-lt);
 }
 
@@ -68,13 +69,12 @@ input:focus {
 }
 
 .SearchBar {
-  width: 80%;
+  margin: 20px;
   display: flex;
   flex-wrap: nowrap;
   flex-basis: 100%;
   justify-content: space-between;
   align-items: center;
-  margin: 0 auto;
 }
 
 .descTop {
@@ -183,6 +183,7 @@ body {
   color: #ffffff;
   border-radius: 5px;
   min-width: 40px;
+  width: 100px;
   max-width: 150px;
   padding: 10px;
   font-size: 1rem;
@@ -240,16 +241,19 @@ body {
 }
 
 .FulltimeFilter {
+  width: 30%;
   display: flex;
-  background-color: red;
+  justify-content: space-evenly;
   flex-wrap: nowrap;
+  align-items: center;
+  max-width: 140px;
+}
+
+.ft-lbl {
+  margin-bottom: 0px;
 }
 
 @media (prefers-color-scheme: dark) {
-  .App {
-    color: white;
-  }
-
   .lds-ring {
     color: rgb(226, 222, 222);
     background-color: rgb(39, 39, 39);
@@ -261,13 +265,6 @@ body {
 }
 
 @media (prefers-color-scheme: light) {
-  .App {
-    background: white;
-    color: #555;
-  }
-  .JobCard {
-    background: var(--white-lt);
-  }
   .lds-ring {
     color: rgb(39, 39, 39);
     background-color: rgb(226, 222, 222);
