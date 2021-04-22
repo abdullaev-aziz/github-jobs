@@ -13,7 +13,7 @@ export default function useDarkTheme() {
       appRef.current.classList.remove("darkTheme");
       document.body.classList.remove("darkTheme");
     }
-  }, [isDark, appRef]);
+  }, [isDark]);
 
   return appRef;
 }

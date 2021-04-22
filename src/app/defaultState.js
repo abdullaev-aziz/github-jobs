@@ -1,4 +1,5 @@
 /**
+ * isLoading is used while fetching jobs from API, when it's true a spinner is shown
  * defaultState is an object for redux store
  * isDark - true if dark mode is default, false otherwise
  * showJobDescription, the job description is hidden unless a job card is clicked

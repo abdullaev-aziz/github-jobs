@@ -29,7 +29,7 @@ export default function DefaultJobs({ children }) {
     });
   };
 
-  //CHECK IF DADRK MODE IS DEFAULT ON THE DEVICE
+  //CHECK IF DARK MODE IS DEFAULT ON THE DEVICE
   useEffect(() => {
     if (isDarkTheme()) {
       dispatch({ type: actions.DARK_THEME, payload: true });

@@ -5,10 +5,6 @@ export const getUserLocation = async (success, errorCb) => {
     maximumAge: 0,
   };
 
-  function errors(err) {
-    console.warn(`ERROR(${err.code}): ${err.message}`);
-  }
-
   if (navigator.geolocation) {
     const result = await navigator.permissions.query({ name: "geolocation" });
     if (result.state === "granted") {

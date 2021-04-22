@@ -1,5 +1,4 @@
 const actionTypes = {
-  SET_JOBS: "setJobs",
   DARK_THEME: "isDark",
   SHOW_DESCRIPTION: "showDescription",
   QUERY_URL: "queryURL",
