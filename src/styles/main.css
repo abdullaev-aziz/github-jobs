@@ -20,10 +20,20 @@ html {
   background: var(--light-gray);
 }
 
+.Header {
+  padding-left: 20px;
+  left: 0;
+  top: 0;
+  height: 60px;
+  background-color: var(--common-purple);
+  color: white;
+  width: 100%;
+}
+
 
 .SearchBar.darkTheme,
 .App.darkTheme,
-.JobContainer.darkTheme, body.darkTheme {
+.JobContainer.darkTheme, body.darkTheme, .Header.darkTheme {
   background: var(--dark-blue);
 }
 
@@ -33,6 +43,10 @@ html {
   margin: 20px auto;
   background-color: var(--white-lt);
   color: var(--dark-blue);
+}
+
+.Header.darkTheme * {
+  color: var(--white-lt);
 }
 
 .JobCard.darkTheme,
@@ -66,6 +80,7 @@ input:focus {
 }
 
 .SearchBar {
+  height: 60px;
   max-width: 800px;
   padding: 10px 20px;
   margin: auto;
@@ -116,15 +131,7 @@ input:focus {
   width: 100%;
 }
 
-.Header {
-  padding-left: 20px;
-  left: 0;
-  top: 0;
-  height: 60px;
-  background-color: var(--common-purple);
-  color: white;
-  width: 100%;
-}
+
 
 .title {
   display: inline-block;
@@ -277,4 +284,8 @@ body {
     border: 24px solid rgb(39, 39, 39);
     border-color: rgb(39, 39, 39) transparent transparent transparent;
   }
+}
+
+a {
+  text-decoration: none;
 }

@@ -2,13 +2,14 @@ import React from "react";
 import ThemeToggle from "../components/ThemeToggle";
 import useDarkTheme from "../hooks/useDarkTheme";
 
-
 export default function Header() {
-    const appRef = useDarkTheme();
+  const appRef = useDarkTheme();
 
   return (
-    <div className="Header">
-      <span className="title">GitHub Careers</span>
+    <div className="Header" ref={appRef}>
+      <a href="/">
+        <span className="title">GitHub Careers</span>
+      </a>
       <ThemeToggle />
     </div>
   );
