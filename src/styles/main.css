@@ -26,8 +26,7 @@ html {
   top: 0;
   height: 60px;
   background-color: var(--common-purple);
-  color: white;
-  width: 100%;
+ width: 100%;
 }
 
 
@@ -45,7 +44,7 @@ html {
   color: var(--dark-blue);
 }
 
-.Header.darkTheme * {
+.Header * {
   color: var(--white-lt);
 }
 
