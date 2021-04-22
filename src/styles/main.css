@@ -55,8 +55,8 @@ html {
 }
 
 .NoJobsFound {
-  position: relative;
-  top: 40%;
+  text-align: center;
+  padding: 40px;
   color:rgb(110, 108, 108);
 }
 
@@ -67,6 +67,7 @@ input:focus {
 
 .SearchBar {
   max-width: 800px;
+  padding: 10px 20px;
   margin: auto;
   display: flex;
   flex-wrap: nowrap;
