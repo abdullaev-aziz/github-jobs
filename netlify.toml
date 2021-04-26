@@ -9,3 +9,9 @@
   to = "https://jobs.github.com/positions/:id.json"
   status = 200
   force = true
+
+[[redirects]]
+  from = "/job/:id"
+  to = "/index.html"
+  status = 200
+  force = true
