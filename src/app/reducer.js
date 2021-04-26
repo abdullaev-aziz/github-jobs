@@ -15,8 +15,6 @@ export default function reducer(store = defaultState, action) {
     //theme related actions
     case types.DARK_THEME:
       return { ...store, isDark: action.payload };
-    case types.SHOW_DESCRIPTION:
-      return { ...store, showJobDescription: action.payload };
 
     //data related actions
     case types.NEW_JOBS:
