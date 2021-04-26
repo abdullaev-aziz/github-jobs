@@ -1,14 +1,12 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useState } from "react";
 import JobCard from "../components/JobCard";
 import { useSelector } from "react-redux";
 import Spinner from "../components/Spinner";
-import useDarkTheme from "../hooks/useDarkTheme";
 import NoJobsFound from "../components/NoJobsFound";
 
 export default function Jobs() {
-  const jobsRef = useDarkTheme();
   const store = useSelector((store) => store);
-  const { jobs, resultsPerPage, isLoading } = store;
+  const { jobs, resultsPerPage, isLoading, isDark } = store;
   const [resultsShown, setResultsShown] = useState(12);
 
   const loadMoreResults = () => {
@@ -20,7 +18,7 @@ export default function Jobs() {
     <Spinner />
   ) : jobs.length > 0 ? (
     <>
-      <div ref={jobsRef} className="JobContainer">
+      <div className={`JobContainer ${isDark ? "darkTheme" : "lightTheme"}`}>
         {jobs
           .map((job) => <JobCard job={job} key={job && job.id} />)
           .slice(0, resultsShown)}
@@ -34,5 +32,7 @@ export default function Jobs() {
         )}
       </div>
     </>
-  ) : <NoJobsFound/>
+  ) : (
+    <NoJobsFound />
+  );
 }

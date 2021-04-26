@@ -1,19 +1,29 @@
-import Jobs from "./containers/Jobs";
 import React from "react";
-import DefaultJobs from "./components/DefaultJobs";
-import JobDescription from "./components/JobDescription";
-import useDarkTheme from "./hooks/useDarkTheme";
 import SearchBar from "./containers/SearchBar";
 import Header from "./containers/Header";
-import {Route, Switch} from 'react-router-dom'
+import { Route, Switch } from "react-router-dom";
+import loadable from "@loadable/component";
+import { useSelector } from "react-redux";
+import Spinner from "./components/Spinner";
+
+//lazy load
+const DefaultJobs = loadable(() =>
+  import(/* webpackChunkName: "default-jobs" */ "./components/DefaultJobs")
+);
+const JobDescription = loadable(() =>
+  import(/* webpackChunkName: "job-desc" */ "./components/JobDescription"), {fallback: <Spinner/>})
+
+const Jobs = loadable(() =>
+  import(/* webpackChunkName: "jobs" */ "./containers/Jobs"), {
+    fallback: <Spinner />})
 
 function App() {
-  const appRef = useDarkTheme();
+  const isDark = useSelector(store => store.isDark)
   return (
-    <div className="App" ref={appRef}>
-      <DefaultJobs />
+    <div className={`App ${isDark ? "darkTheme" : "lightTheme"}`}>
       <Header />
       <SearchBar />
+      <DefaultJobs />
 
       <Switch>
         <Route path={`/job/:id`}>

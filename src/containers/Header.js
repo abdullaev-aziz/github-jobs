@@ -1,15 +1,18 @@
 import React from "react";
-import ThemeToggle from "../components/ThemeToggle";
-import useDarkTheme from "../hooks/useDarkTheme";
+import { Link } from "react-router-dom";
+import {useSelector} from 'react-redux'
+import ThemeToggle from '../components/ThemeToggle'
 
 export default function Header() {
-  const appRef = useDarkTheme();
+  const isDark = useSelector((store) => store.isDark);
 
   return (
-    <div className="Header" ref={appRef}>
-      <a href="/">
+    <div
+      className={`Header ${isDark ? "darkTheme" : "lightTheme"}`}
+    >
+      <Link to="/">
         <span className="title">GitHub Careers</span>
-      </a>
+      </Link>
       <ThemeToggle />
     </div>
   );

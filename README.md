@@ -11,6 +11,7 @@
 - Responsive design, using media queries
 - Redux state management for better scaling and state bug tracking (might be an overkill for this app)
 - Deployed on netlify with a custom domain
+- Added lazy loading for several components
 
 
 ### Bugs:

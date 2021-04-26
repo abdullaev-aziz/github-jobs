@@ -1,6 +1,5 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router";
 import { Link } from "react-router-dom";
 import fetchGitApi from "../adapters/fetchGitApi";
 import actionTypes from "../app/actionTypes";

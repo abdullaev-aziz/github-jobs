@@ -15,7 +15,7 @@ import isDarkTheme from "../utils/isDarkTheme";
 
 export default function DefaultJobs({ children }) {
   const dispatch = useDispatch();
-  const urlParams = useSelector((store) => store.queryURL);
+  const {queryUrl : urlParams, isDark} = useSelector((store) => store);
   const [permission, setPermission] = useState(false);
 
   const setDefaultJobs = async (url) => {
@@ -35,6 +35,17 @@ export default function DefaultJobs({ children }) {
       dispatch({ type: actions.DARK_THEME, payload: true });
     }
   }, []);
+
+  //subscribe to isDark Change
+  useEffect(()=> {
+    const body = document.querySelector('body')
+    if (isDark) {
+      body.classList.add('darkTheme')
+    } else {
+      body.classList.remove('darkTheme')
+    }
+  }, [isDark])
+
 
   //USER LOCATION
 

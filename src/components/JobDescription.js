@@ -1,15 +1,11 @@
 import React, { useEffect, useState } from "react";
-import useDarkTheme from "../hooks/useDarkTheme";
 import CompanyLogo from "./CompanyLogo";
 import getTimeAgo from "../utils/getTimeAgo";
-import { Link, Redirect, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import fetchGitApi from "../adapters/fetchGitApi";
-import Spinner from "./Spinner";
 import { useSelector } from "react-redux";
 
 export default function JobDescription() {
-  const descriptionRef = useDarkTheme();
-
   const isDark = useSelector(store => store.isDark)
 
   const { id } = useParams();
@@ -20,7 +16,7 @@ export default function JobDescription() {
     fetchGitApi(`/positions/${id}.json`)
       .then((job) => setCurrentJob({...job, loading:false}))
       .catch((err) => console.log("err", err));
-  });
+  },[id]);
 
   console.log("current job", currentJob);
   const {
@@ -36,9 +32,9 @@ export default function JobDescription() {
   const curDate = new Date().toISOString();
   const timeAgo = getTimeAgo(curDate, currentJob.created_at);
 
-  return currentJob.loading ? <Spinner/> : (
+  return !currentJob.loading && (
     <div className="backDesc" >
-      <div className={`JobDescription ${isDark ? "darkTheme" : "lightTheme"}`} ref={descriptionRef}>
+      <div className={`JobDescription ${isDark ? "darkTheme" : "lightTheme"}`}>
         <div className="descTop">
           <CompanyLogo logo={company_logo} />
           <div>
