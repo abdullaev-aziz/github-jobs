@@ -1,6 +1,8 @@
 *,
 *::after,
-*::before {
+*::before,
+:not(.JobDescription) {
+  /* transition: 0.1s ease-in-out; */
   box-sizing: border-box;
 }
 
@@ -16,7 +18,8 @@ html {
   margin: 0px;
 }
 
-.App, body {
+.App,
+body {
   background: var(--light-gray);
 }
 
@@ -26,19 +29,20 @@ html {
   top: 0;
   height: 60px;
   background-color: var(--common-purple);
- width: 100%;
+  width: 100%;
 }
-
 
 .SearchBar.darkTheme,
 .App.darkTheme,
-.JobContainer.darkTheme, body.darkTheme, .Header.darkTheme {
+.JobContainer.darkTheme,
+body.darkTheme,
+.Header.darkTheme {
   background: var(--dark-blue);
 }
 
-.JobDescription,
-.JobCard,
-.SearchBar {
+.JobDescription.lightTheme,
+.JobCard.lightTheme,
+.SearchBar.lightTheme {
   margin: 20px auto;
   background-color: var(--white-lt);
   color: var(--dark-blue);
@@ -70,7 +74,7 @@ html {
 .NoJobsFound {
   text-align: center;
   padding: 40px;
-  color:rgb(110, 108, 108);
+  color: rgb(110, 108, 108);
 }
 
 textarea:focus,
@@ -106,7 +110,6 @@ input:focus {
   flex-basis: 100%;
   justify-content: center;
   flex-direction: row;
-  flex-basis: 100%;
   display: flex;
   align-items: stretch;
   justify-content: space-between;
@@ -114,7 +117,6 @@ input:focus {
   margin: 20px;
   padding: 10px;
   width: 100%;
-  height: 80px;
 }
 
 .SearchInput {
@@ -129,8 +131,6 @@ input:focus {
   display: inline-block;
   width: 100%;
 }
-
-
 
 .title {
   display: inline-block;
@@ -186,6 +186,14 @@ body {
   right: 0;
 }
 
+/*
+fix flickering
+*/
+
+.JobCard, .JobDescription {
+  background: none;
+}
+
 .actionBtn {
   background-color: var(--common-purple);
   color: #ffffff;
@@ -202,9 +210,7 @@ body {
   margin-top: 10px;
 }
 .JobContainer {
-  display: flex;
-  flex-wrap: wrap;
-  flex-basis: 100%;
+  display: block;
   justify-content: center;
 }
 
@@ -227,24 +233,29 @@ body {
   padding: 10px;
   height: 240px;
   width: 100%;
+  margin: 20px auto;
   max-width: 500px;
   cursor: pointer;
 }
 
 @media screen and (min-width: 769px) {
   .JobContainer {
+    display: flex;
     justify-content: center;
     align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
   .JobCard {
     width: 30vw;
     height: 240px;
-    margin: 20px auto;
+    margin: 10px;
   }
 
   .SearchBar,
   .descTop {
-    flex-direction: row;
+    flex-direction: column;
+    flex-wrap: wrap;
     justify-content: space-between;
   }
 }

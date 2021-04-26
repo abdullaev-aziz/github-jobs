@@ -8,18 +8,13 @@ import NoJobsFound from "../components/NoJobsFound";
 export default function Jobs() {
   const jobsRef = useDarkTheme();
   const store = useSelector((store) => store);
-  const { jobs, showJobDescription, resultsPerPage, isLoading } = store;
+  const { jobs, resultsPerPage, isLoading } = store;
   const [resultsShown, setResultsShown] = useState(12);
 
   const loadMoreResults = () => {
     setResultsShown((prev) => prev + resultsPerPage);
   };
 
-  useEffect(() => {
-    if (jobsRef.current) {
-      jobsRef.current.style.display = showJobDescription ? "none" : "flex";
-    }
-  }, [showJobDescription]);
 
   return isLoading ? (
     <Spinner />

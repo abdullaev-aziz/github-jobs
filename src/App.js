@@ -5,16 +5,25 @@ import JobDescription from "./components/JobDescription";
 import useDarkTheme from "./hooks/useDarkTheme";
 import SearchBar from "./containers/SearchBar";
 import Header from "./containers/Header";
+import {Route, Switch} from 'react-router-dom'
 
 function App() {
   const appRef = useDarkTheme();
   return (
     <div className="App" ref={appRef}>
       <DefaultJobs />
-      <Header/>
+      <Header />
       <SearchBar />
-      <Jobs />
-      <JobDescription />
+
+      <Switch>
+        <Route path={`/job/:id`}>
+          <JobDescription />
+        </Route>
+
+        <Route path="/">
+          <Jobs />
+        </Route>
+      </Switch>
     </div>
   );
 }
