@@ -3,3 +3,9 @@
   to = "https://jobs.github.com/positions.json/:splat"
   status = 200
   force = true
+
+[[redirects]]
+  from = "/positions/:id.json"
+  to = "https://jobs.github.com/positions/:id.json"
+  status = 200
+  force = true
