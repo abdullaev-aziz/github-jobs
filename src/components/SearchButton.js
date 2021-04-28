@@ -5,6 +5,9 @@ import fetchGitApi from "../adapters/fetchGitApi";
 import actionTypes from "../app/actionTypes";
 import { BASE_URL } from "../app/constants";
 import gitHubJobsQuery from "../utils/gitHubJobsQuery";
+import { IconButton } from "@chakra-ui/react";
+import SearchIcon from "./SearchIcon";
+
 
 export default function SearchButton() {
   const query = useSelector((store) => store.queryURL);
@@ -24,9 +27,12 @@ export default function SearchButton() {
   return (
     <Link to="/">
       <div className="SearchButton">
-        <button onClick={getNewJobs} className="actionBtn">
-          Search
-        </button>
+        <IconButton
+          colorScheme="teal"
+          onClick={getNewJobs}
+          aria-label="Search database"
+          icon={<SearchIcon />}
+        />
       </div>
     </Link>
   );

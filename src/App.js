@@ -5,6 +5,8 @@ import { Route, Switch } from "react-router-dom";
 import loadable from "@loadable/component";
 import { useSelector } from "react-redux";
 import Spinner from "./components/Spinner";
+import { ChakraProvider } from "@chakra-ui/react";
+
 
 //lazy load
 const DefaultJobs = loadable(() =>
@@ -20,21 +22,23 @@ const Jobs = loadable(() =>
 function App() {
   const isDark = useSelector(store => store.isDark)
   return (
-    <div className={`App ${isDark ? "darkTheme" : "lightTheme"}`}>
-      <Header />
-      <SearchBar />
-      <DefaultJobs />
+    <ChakraProvider>
+      <div className={`App ${isDark ? "darkTheme" : "lightTheme"}`}>
+        <Header />
+        <SearchBar />
+        <DefaultJobs />
 
-      <Switch>
-        <Route path={`/job/:id`}>
-          <JobDescription />
-        </Route>
+        <Switch>
+          <Route path={`/job/:id`}>
+            <JobDescription />
+          </Route>
 
-        <Route path="/">
-          <Jobs />
-        </Route>
-      </Switch>
-    </div>
+          <Route path="/">
+            <Jobs />
+          </Route>
+        </Switch>
+      </div>
+    </ChakraProvider>
   );
 }
 
