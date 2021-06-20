@@ -6,6 +6,7 @@ import loadable from "@loadable/component";
 import { useSelector } from "react-redux";
 import Spinner from "./components/Spinner";
 import { ChakraProvider } from "@chakra-ui/react";
+import DeprecationNotice from "./components/DeprecationNotice";
 
 
 //lazy load
@@ -23,6 +24,7 @@ function App() {
   const isDark = useSelector(store => store.isDark)
   return (
     <ChakraProvider>
+      <DeprecationNotice />
       <div className={`App ${isDark ? "darkTheme" : "lightTheme"}`}>
         <Header />
         <SearchBar />
