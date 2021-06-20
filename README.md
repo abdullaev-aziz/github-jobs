@@ -1,5 +1,9 @@
 # [GitHub Careers](https://gitpicasso.com)
 
+## June Update
+Unfortunately GitHub Jobs API no longer serves a list of jobs. Therefore the app is non-functional at the moment.
+I will be looking for other Job APIs to replace it with in the meantime.
+
 ## A React app utilizing  [GitHub Jobs API](https://jobs.github.com/api) and rendering jobs.
 ### Features:
 - Showing jobs according to user's location
